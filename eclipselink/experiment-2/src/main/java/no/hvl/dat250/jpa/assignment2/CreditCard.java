@@ -1,35 +1,48 @@
 package no.hvl.dat250.jpa.assignment2;
 
+import lombok.Data;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Data
 public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Integer number;
+    private Integer limit;
+    private  Integer balance;
+
+    @OneToOne()
+    private Pincode myPincode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owningBank")
+    private Bank owningBank;
+
     public Integer getNumber() {
-        // TODO: implement method!
-        return null;
+        return this.number;
     }
 
     public Integer getBalance() {
-        // TODO: implement method!
-        return null;
+        return this.balance;
     }
 
     public Integer getLimit() {
-        // TODO: implement method!
-        return null;
+        return this.limit;
     }
 
     public Pincode getPincode() {
-        // TODO: implement method!
-        return null;
+        return myPincode;
     }
 
     public Bank getOwningBank() {
-        // TODO: implement method!
-        return null;
+        return owningBank;
+    }
+
+    public void setOwningBank(Bank bank){
+        this.owningBank = bank;
     }
 }
