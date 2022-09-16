@@ -64,11 +64,11 @@ public class Main {
         person.setMyCreditCards(cards);
 
         //Create new Bank
-//        Set<CreditCard> car = new HashSet<>();
-//        car.add(card1);
-//        car.add(card2);
-//        bank.setMyCreditCards(car);
-        //bank.setCards(car);
+        Set<CreditCard> car = new HashSet<>();
+        car.add(card1);
+        car.add(card2);
+        bank.setMyCreditCards(car);
+        bank.setCards(car);
 
         em.persist(person);
         em.persist(pin);
